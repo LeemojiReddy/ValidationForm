@@ -1,0 +1,28 @@
+.border-color{
+    border:2px solid rgb(199, 80, 80);
+}
+#red{
+    color: rgba(149, 66, 19, 0.929);
+}
+#phone-no{
+    width: 67%;
+}
+select{
+    border:2px solid gray
+}
+.sub{
+    width: 30%;
+    background-color: rgb(141, 21, 51);
+    color: white;
+    font-weight: bold;
+}
+.res{
+    width: 30%;
+    background-color: rgb(141, 21, 51);
+    color: white;
+    font-weight: bold;
+}
+.error{
+    font-weight: bold;
+    color:red;
+}
