@@ -1,0 +1,184 @@
+JENKINS:-
+
+1.sudo yum update
+
+2.sudo yum install java-17-amazon-corretto
+
+3.sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo   (sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat/jenkins.repo)   
+
+4.sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key   (sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key)
+
+5.sudo yum install jenkins
+
+6.sudo systemctl start jenkins
+
+7.sudo cat /var/lib/jenkins/secrets/initialAdminPassword   (Copy the initial password)
+
+8.Ec2 -> instances -> instance id -> security tab -> security groups -> edit inbound rule -> add rule -> port 8080 and select 0.0.0.0/0 -> click save rules
+
+9.Public IP:8080 search in the address bar of chrome
+
+10.Give the copied initial password and select " install suggested pulgins "
+
+
+GITHUB:-
+
+1.sudo yum install git -y
+
+2.Plugins - Git integration
+
+3.Tools 
+    Git installation-
+      Name - Git
+
+
+
+MAVEN:-
+
+1.cd /opt
+
+2.sudo wget https://dlcdn.apache.org/maven/maven-3/3.9.5/binaries/apache-maven-3.9.5-bin.tar.gz -O apache-maven-3.9.5-bin.tar.gz
+
+3.sudo tar -zxvf apache-maven-3.9.5-bin.tar.gz (extract)
+
+4.sudo mv apache-maven-3.9.5 maven
+
+5.sudo su -
+
+6.cd ~
+
+7.vi ~/.bash_profile
+
+
+8. M2_HOME=/opt/maven    ( i for insert mode esc for remove insert mode , :wq enter)       
+   M2=/opt/maven/bin 
+   PATH=$PATH:$M2_HOME:$M2
+9.esc :wq
+
+9.source ~/.bash_profile
+
+10.mvn -v
+
+11.Plugins - maven integration plugin install
+
+12. In tools:-
+       JDK installations-
+           Name - java-11
+           JAVA_HOME - /usr/lib/jvm/java-11-amazon-corretto.x86_64
+
+
+       Maven installations-
+           Name - maven-3.9.5
+           MAVEN_HOME - /opt/maven
+
+
+
+For git repo use this dummy link -
+1. https://github.com/GeorgeBaidooJr9/hello-world
+2. https://github.com/yankils/hello-world
+
+
+
+
+TOMCAT:
+
+1.sudo su -
+
+2.cd /opt
+
+3.wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.83/bin/apache-tomcat-9.0.83.tar.gz
+
+4.tar -zxvf apache-tomcat-9.0.83.tar.gz
+
+
+5.mv apache-tomcat-9.0.83 tomcat
+
+6.cd tomcat
+
+7.cd conf
+
+8.vi server.xml
+
+      #goto "insert" mode
+      search for <connector> and replace 8080 to 8081
+      press "esc"
+      :wq
+      press enter
+
+
+     # Add security groups with inbound rule as "ustom tcp", 8081, 0.0.0.0/0 
+
+
+9.cd ..
+
+10.cd bin
+
+11) ./shutdown.sh
+
+
+12) ./startup.sh
+
+
+13. sudo find / -name context.xml
+
+
+14) vi /opt/tomcat/webapps/host-manager/META-INF/context.xml
+
+     # Comment out the valve class name with <!- - and  - - > and  save and quit using  :wq
+
+
+15) vi /opt/tomcat/webapps/manager/META-INF/context.xml
+
+     # Comment out the valve calss name with <!- - and  - - > and save and quit using  :wq
+
+16) cd bin
+
+
+17) ./shutdown.sh
+
+
+18) ./startup.sh
+
+
+19) cd conf
+
+20) vi tomcat-users.xml
+
+<role rolename="manager-gui"/>
+
+<role rolename="manager-script"/>
+
+<role rolename="manager-jmx"/>
+
+<role rolename="manager-status"/>
+
+<user username="admin" password="admin" roles="manager-gui, manager- script, manager-jmx, manager-status"/> <user username="deployer" password="deployer" roles="manager-
+
+script"/> <user username="tomcat" password="s3cret" roles="manager-gui"/>
+
+
+21) cd ..
+
+22) ./shutdown.sh
+
+23)  ./startup.sh
+
+24) credentials are username- admin  and password- admin
+
+
+
+Create link files for Tomcat Server up and Down
+
+ln -s /opt/tomcat/bin/startup.sh /usr/local/bin/tomcatup
+
+ln -s /opt/tomcat/bin/shutdown.sh /usr/local/bin/tomcatdown
+
+
+To remove the links 
+
+rm /usr/local/bin/tomcatdown
+
+rm /usr/local/bin/tomcatup
+
+Docker
+https://enlear.academy/deploying-a-full-stack-application-on-aws-ec2-with-docker-a-step-by-step-guide-86363d99a5ff
