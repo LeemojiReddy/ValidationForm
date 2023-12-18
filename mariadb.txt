@@ -51,3 +51,5 @@ public class AwsLambdaFunctions {
 https://github.com/Saibalaji-477/monday
 
 https://becbapatla-my.sharepoint.com/personal/avkrishnarao_padyala_becbapatla_ac_in/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Favkrishnarao%5Fpadyala%5Fbecbapatla%5Fac%5Fin%2FDocuments%2FCP%20LAB&ga=1
+
+https://becbapatla-my.sharepoint.com/:f:/g/personal/avkrishnarao_padyala_becbapatla_ac_in/EugerwWrwhxEuC5VstYEvzEBy-0--tsvH6rpmHJNYz6Aew?e=Rxhbgw
