@@ -1,0 +1,51 @@
+<!--Mariadb-->
+sudo su -
+
+sudo yum install mariadb105-server.x86_64
+
+sudo systemctl enable mariadb
+
+sudo systemctl start mariadb
+
+Username: admin
+
+Password: admin12345
+
+RDS Endpoint: database-2.cnl4twnslfvl.ap-south-1.rds.amazonaws.com
+
+Command to connect:
+
+mysql -h <paste-rds-endpoint-here> -P 3306 -u admin -p
+
+<!---ec2 linux-->
+
+https://www.free-css.com/assets/files/free-css-templates/download/page269/complex.zip
+
+sudo su -
+yum update -y
+yum install -y httpd
+systemctl status httpd
+mkdir temp
+cd temp
+wget https://www.free-css.com/assets/files...
+unzip complex.zip
+cd complex
+ls -lrt
+mv * /var/www/html
+cd /var/www/html
+systemctl enable httpd
+systemctl start httpd
+
+<!---lambda-->
+
+package com.mcnz.aws.lambda;
+
+public class AwsLambdaFunctions {
+	public String alterPayload(String Payload) {
+	System.out.println("You are in heaven..");
+	return Payload.replace('l','4').replace('h','6');
+}}
+
+
+
+https://github.com/Saibalaji-477/monday
