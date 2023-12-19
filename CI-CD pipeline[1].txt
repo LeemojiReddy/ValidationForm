@@ -182,3 +182,133 @@ rm /usr/local/bin/tomcatup
 
 Docker
 https://enlear.academy/deploying-a-full-stack-application-on-aws-ec2-with-docker-a-step-by-step-guide-86363d99a5ff
+
+
+
+1)sudo su -
+
+2) sudo yum update -y
+
+3)sudo yum install docker
+
+4)sudo service docker start
+
+5)sudo service docker status
+
+6)docker search tomcat
+
+7)docker pull tomcat
+
+8)docker images
+
+9)docker run -d --name tomcat -p 8081:8080 tomcat
+
+10)docker exec -it tomcat /bin/bash
+
+11)pwd
+
+12)ll
+
+13)cd webapps.dist
+
+14)cp -R * ../webapps
+
+ADD INBOUND RULES IN SECURITY GROUP AS CUSTOMTCP 8081-9000
+
+
+<!-----GIT REMOTE REPOSITORY-------->
+
+PS Z:\remote> git init
+Initialized empty Git repository in Z:/remote/.git/
+PS Z:\remote> git clone https://github.com/LeemojiReddy/balaji.git
+Cloning into 'balaji'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+PS Z:\remote> git remote
+PS Z:\remote> git remote add origin https://github.com/LeemojiReddy/balaji.git
+PS Z:\remote> git remote
+origin
+PS Z:\remote> git remote -v
+origin  https://github.com/LeemojiReddy/balaji.git (fetch)
+origin  https://github.com/LeemojiReddy/balaji.git (push)
+PS Z:\remote> git fetch origin
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 598 bytes | 54.00 KiB/s, done.
+From https://github.com/LeemojiReddy/balaji
+ * [new branch]      main       -> origin/main
+PS Z:\remote> git pull origin master
+fatal: couldn't find remote ref master
+PS Z:\remote> git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        balaji/
+
+nothing added to commit but untracked files present (use "git add" to track)
+PS Z:\remote> git pull origin master
+fatal: couldn't find remote ref master
+PS Z:\remote> git pull https://github.com/LeemojiReddy/balaji.git master
+fatal: couldn't find remote ref master
+PS Z:\remote> git fetch origin master
+fatal: couldn't find remote ref master
+PS Z:\remote> git pull origin
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 669 bytes | 47.00 KiB/s, done.
+From https://github.com/LeemojiReddy/balaji
+   987893c..a1d376a  main       -> origin/main
+You asked to pull from the remote 'origin', but did not specify
+a branch. Because this is not the default configured remote
+for your current branch, you must specify a branch on the command line.
+PS Z:\remote> git pull origin main
+From https://github.com/LeemojiReddy/balaji
+ * branch            main       -> FETCH_HEAD
+PS Z:\remote> git add .
+warning: adding embedded git repository: balaji
+hint: You've added another git repository inside your current repository.
+hint: Clones of the outer repository will not contain the contents of
+hint: the embedded repository and will not know how to obtain it.
+hint: If you meant to add a submodule, use:
+hint:
+hint:   git submodule add <url> balaji
+hint:
+hint: If you added this path by mistake, you can remove it from the
+hint: index with:
+hint:
+hint:   git rm --cached balaji
+hint:
+hint: See "git help submodule" for more information.
+PS Z:\remote> git commit -m "initial commit"
+[master 19a96a5] initial commit
+ 2 files changed, 2 insertions(+)
+ create mode 160000 balaji
+ create mode 100644 sriram.txt
+PS Z:\remote> git push origin main
+error: src refspec main does not match any
+error: failed to push some refs to 'https://github.com/LeemojiReddy/balaji.git'
+PS Z:\remote> git push origin main
+error: src refspec main does not match any
+error: failed to push some refs to 'https://github.com/LeemojiReddy/balaji.git'
+PS Z:\remote> git push origin master
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 342 bytes | 342.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: 
+remote: Create a pull request for 'master' on GitHub by visiting:
+remote:      https://github.com/LeemojiReddy/balaji/pull/new/master
+remote:
+To https://github.com/LeemojiReddy/balaji.git
+ * [new branch]      master -> master
+PS Z:\remote>
