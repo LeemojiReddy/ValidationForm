@@ -1,3 +1,5 @@
+https://medium.com/@deepamathan/how-to-integrate-tomcat-server-in-cicd-pipeline-bbe59557a083
+
 JENKINS:-
 
 1.sudo yum update
